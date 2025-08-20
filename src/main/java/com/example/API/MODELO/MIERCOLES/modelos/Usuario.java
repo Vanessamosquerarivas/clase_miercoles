@@ -31,7 +31,13 @@ public class Usuario {
 
 
     // DESPUES DE LOS ATRIBUTOS Y ANTES DE CONSTRUCTOR DEFINO LAS RELACIONES
+    //definiendo relacione UNO A UNO
+    // 1. para representar en java una relacion de UNO con otra tabla creo una variable
+    // de esa tabla con la que me voy a relacionar
 
+    //2.identifico el lado principal de la relacion (la tabla que tiene la fk )
+
+    private Estudiante estudiante;
     public Usuario() {
     }
 
