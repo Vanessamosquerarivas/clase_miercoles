@@ -29,6 +29,9 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private RolesUsuario rol;
 
+
+    // DESPUES DE LOS ATRIBUTOS Y ANTES DE CONSTRUCTOR DEFINO LAS RELACIONES
+
     public Usuario() {
     }
 
