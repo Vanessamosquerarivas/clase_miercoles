@@ -1,5 +1,6 @@
 package com.example.API.MODELO.MIERCOLES.modelos;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.springframework.cglib.core.Local;
 
@@ -24,7 +25,8 @@ public class Estudiante {
 
     @OneToOne
     //3. en la tabla que tiene la fk configuro la relacion con la otra tabla
-    @JoinColumn(name = "fk_usuario")
+    @JoinColumn(name = "fk_usuario",referencedColumnName = "id")
+    @JsonManagedReference(value = "relacionentreusuarioyestudiante")
     private Usuario usuario;
 
 
