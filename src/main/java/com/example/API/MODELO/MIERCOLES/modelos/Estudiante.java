@@ -1,10 +1,12 @@
 package com.example.API.MODELO.MIERCOLES.modelos;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -29,6 +31,12 @@ public class Estudiante {
     @JsonManagedReference(value = "relacionentreusuarioyestudiante")
     private Usuario usuario;
 
+    //CREANDO RELACION DE UNO A MUCHOS
+    //1. PARA REPRESENTAR MUCHOS ELEMENTOS DE  OTRA TABLA DEBO CREAR UN ARREGLOS (LISTA)
+
+    @OneToMany(mappedBy = "estudiante")
+    @JsonBackReference(value = "relacionentreestudianteyasistencia")
+    private ArrayList<Asistencia> asistencias;
 
     public  Estudiante (){
     }

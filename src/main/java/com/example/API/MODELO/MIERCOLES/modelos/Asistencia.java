@@ -1,6 +1,7 @@
 package com.example.API.MODELO.MIERCOLES.modelos;
 
 import com.example.API.MODELO.MIERCOLES.ayudas.Estado;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import javax.annotation.processing.Generated;
@@ -23,6 +24,14 @@ public class Asistencia {
     @Enumerated(EnumType.STRING)
     private Estado estado;
 
+    //creando una relacion
+    //2. como me relaciono con un solo elemento  de la otra tabla creo  una variable individual
+    @ManyToOne
+
+    //3. construyo la relacion entre las tablas (defino la fk)
+    @JoinColumn(name = "fk_estudiante",referencedColumnName = "id")
+    @JsonManagedReference(value = "relacionentreestudianteyasistencia")
+    private Estudiante estudiante ;
 
     public  Asistencia(){
 
