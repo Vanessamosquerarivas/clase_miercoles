@@ -2,6 +2,7 @@ package com.example.API.MODELO.MIERCOLES.modelos;
 
 import com.example.API.MODELO.MIERCOLES.ayudas.EstadosUsuario;
 import com.example.API.MODELO.MIERCOLES.ayudas.RolesUsuario;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -36,6 +37,10 @@ public class Usuario {
     // de esa tabla con la que me voy a relacionar
 
     //2.identifico el lado principal de la relacion (la tabla que tiene la fk )
+    //4. configuro la relacion en el lado no dominante
+
+    @OneToOne(mappedBy = "usuario")
+    @JsonBackReference(value = "relacionentreusuarioyestudiante")
 
     private Estudiante estudiante;
     public Usuario() {
